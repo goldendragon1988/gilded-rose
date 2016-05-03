@@ -43,7 +43,7 @@ describe GildedRose do
       it "checks if Sulfuras quality doesn't change" do
         GildedRose.new([item]).update_quality
 
-        expect(item.quality).to eq 5
+        expect(item.quality).to eq 80
       end
       it "checks if Sulfuras sell_in decreases by 1" do
         GildedRose.new([item]).update_quality

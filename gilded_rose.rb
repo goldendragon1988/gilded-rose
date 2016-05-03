@@ -13,7 +13,7 @@ class GildedRose
   def check_category(item)
     name = item_name(item)
     if name.include?('sulfuras')
-      # Do nothing
+      the_legendary(item)
     elsif name.include?('aged brie')
       the_reverse(item)
     elsif name.include?('backstage passes')
@@ -23,6 +23,10 @@ class GildedRose
     else
       the_ordinary(item)
     end
+  end
+
+  def the_legendary(item)
+    item.quality = 80
   end
 
   def the_reverse(item)
