@@ -12,16 +12,17 @@ class GildedRose
 
   def check_category(item)
     name = item_name(item)
-    if name.include?('sulfuras')
-      the_legendary(item)
-    elsif name.include?('aged brie')
-      the_reverse(item)
-    elsif name.include?('backstage passes')
-      the_concert(item)
-    elsif name.include?('conjured')
-      the_flash(item)
-    else
-      the_ordinary(item)
+    case true
+      when name.include?('sulfuras')
+        the_legendary(item)
+      when name.include?('aged brie')
+        the_reverse(item)
+      when name.include?('backstage passes')
+        the_concert(item)
+      when name.include?('conjured')
+        the_flash(item)
+      else
+        the_ordinary(item)
     end
   end
 
@@ -41,12 +42,15 @@ class GildedRose
 
   def the_concert(item)
     minus_sell_in(item)
-    if item.sell_in <= 0
+    case true
+    when item.sell_in <= 0
       item.quality = 0
-    elsif item.sell_in <= 5
+    when item.sell_in <= 5
       3.times{plus_quality(item)}
-    else item.sell_in <= 10
+    when item.sell_in <= 10
       2.times{plus_quality(item)}
+    else
+      plus_quality(item)
     end
   end
 
@@ -97,4 +101,4 @@ items = [
 ]
 
 z = GildedRose.new(items)
-z.update_quality
+puts z.update_quality

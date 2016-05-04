@@ -93,6 +93,13 @@ describe GildedRose do
         expect(item.quality).to eq 0
 
       end
+
+      it "checks if it increases by one when sell in is more than 10 days" do
+        item.sell_in = 13
+        GildedRose.new([item]).update_quality
+
+        expect(item.quality).to eq 6
+      end
     end
 
     context "Quality validation" do
