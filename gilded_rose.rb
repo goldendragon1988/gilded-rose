@@ -27,7 +27,7 @@ class GildedRose
   end
 
   def the_legendary(item)
-    item.quality = 80
+    item.quality = 80 unless item.quality == 80
   end
 
   def the_reverse(item)
