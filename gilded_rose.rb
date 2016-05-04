@@ -75,30 +75,3 @@ class GildedRose
     item.name.downcase
   end
 end
-
-
-class Item
-  attr_accessor :name, :sell_in, :quality
-
-  def initialize(name, sell_in, quality)
-    @name = name
-    @sell_in = sell_in
-    @quality = quality
-  end
-
-  def to_s()
-    "#{@name}, #{@sell_in}, #{@quality}"
-  end
-end
-
-items = [
-   Item.new('Backstage passes to a secret court', 4, 10),
-   Item.new('Backstage passes to a concert', 5, 6),
-   Item.new('Aged Brie', 10, 50),
-   Item.new('Sulfuras', 33, 80),
-   Item.new('conJured', 33, 10),
-   Item.new('chte ocmms', 33, 40)
-]
-
-z = GildedRose.new(items)
-puts z.update_quality
